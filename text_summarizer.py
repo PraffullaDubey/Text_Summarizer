@@ -29,28 +29,31 @@ def find_summary_textrank():
     #display the summary
     for s in summ:
         print(s)
-        
+
+#function to find summary using textrank        
 def find_summary_stopwords():
-    parser = PlaintextParser.from_file("testtext.txt", Tokenizer("english"))
-    summarizer_lsa2 = LsaSummarizer()
-    summarizer_lsa2 = LsaSummarizer(Stemmer("english"))
-    summarizer_lsa2.stop_words = get_stop_words("english")
-    for sentence in summarizer_lsa2(parser.document,2):
-        print(sentence)
-        
+    p = PlaintextParser.from_file("testtext.txt", Tokenizer("english"))
+    s_lsa = LsaSummarizer()
+    s_lsa = LsaSummarizer(Stemmer("english"))
+    s_lsa.stop_words = get_stop_words("english")
+    for s in s_lsa(p.document,2):
+        print(s)
+
+#function to find summary using textrank        
 def find_summary_lsa():
-    parser = PlaintextParser.from_file("testtext.txt", Tokenizer("english"))
-    summarizer_lsa = LsaSummarizer()
-    summary_2 =summarizer_lsa(parser.document,2)
-    for sentence in summary_2:
-        print(sentence)
-    
+    p = PlaintextParser.from_file("testtext.txt", Tokenizer("english"))
+    sumlsa = LsaSummarizer()
+    su =sumlsa(p.document,2)
+    for s in su:
+        print(s)
+
+#function to find summary using textrank
 def find_summary_luhn():
-    parser = PlaintextParser.from_file("testtext.txt", Tokenizer("english"))
-    summarizer_luhn = LuhnSummarizer()
-    summary_1 =summarizer_luhn(parser.document,2)
-    for sentence in summary_1:
-        print(sentence)
+    p = PlaintextParser.from_file("testtext.txt", Tokenizer("english"))
+    s_luhn = LuhnSummarizer()
+    su =s_luhn(p.document,2)
+    for s in su:
+        print(s)
     
 
 pathname = "testtext.txt"
